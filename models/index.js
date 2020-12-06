@@ -12,8 +12,8 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, {
-    host: "localhost",
+  sequelize = new Sequelize(process.env.DATABASE, process.env.USER_NAME, process.env.PASSWORD, {
+    host: process.env.HOST,
     dialect: "mysql",
     dialectOptions: {
       useUTC: false, //for reading from database

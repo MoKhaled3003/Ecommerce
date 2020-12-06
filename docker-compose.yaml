@@ -1,13 +1,41 @@
- db:
+version: "3"
+# all the containers have to declare inside services
+services:
+  # App service
+  ecommerce:
+    build: .
+    # image name
+    image: mokhaled3003/ecommerce
+    # container name
+    container_name: ecommerce
+    # always restart the container if it stops.
+    restart: always
+    # docker run -t is allow
+    tty: true 
+    # application port, this is take value from env file
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+
+    # working directory
+    working_dir: /var/www/ecommerce
+    # save (persist) data and also to share data between contain
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+
+  mysqldb:
     image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql
     restart: always
     ports: 
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_DATABASE: Task
-      MYSQL_USER: root
+      MYSQL_HOST: 127.0.0.1
       MYSQL_PASSWORD: root12
       MYSQL_ROOT_PASSWORD: root12
-    networks: 
-            - default
