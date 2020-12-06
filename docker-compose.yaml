@@ -19,6 +19,7 @@ services:
       - .env
     environment:
       - NODE_ENV=development
+      - HOST=mysqldb
 
     # working directory
     working_dir: /var/www/ecommerce
@@ -39,3 +40,5 @@ services:
       MYSQL_HOST: 127.0.0.1
       MYSQL_PASSWORD: root12
       MYSQL_ROOT_PASSWORD: root12
+    volumes: 
+      - ./DDLStructureData.sql:/docker-entrypoint-initdb.d/init.sql
