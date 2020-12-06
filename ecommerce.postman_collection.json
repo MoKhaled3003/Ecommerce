@@ -6,24 +6,110 @@
 	},
 	"item": [
 		{
-			"name": "get products",
+			"name": "get products in category",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:3000/products/ProductsInCategory/?category_id=1&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"ProductsInCategory",
+						""
+					],
+					"query": [
+						{
+							"key": "category_id",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "get products in category",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ProductsInCategory/?category_id=1&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ProductsInCategory",
+								""
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "394"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"18a-ROfZm9xJcpMxfGvd7AD2Nlyh+AU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Dec 2020 10:50:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"poco x3\",\n        \"image_uri\": null,\n        \"featured\": 1,\n        \"category_id\": 2,\n        \"price\": 50,\n        \"provider_id\": 2\n    },\n    {\n        \"id\": 1,\n        \"name\": \"poco x3\",\n        \"image_uri\": null,\n        \"featured\": 1,\n        \"category_id\": 2,\n        \"price\": 50,\n        \"provider_id\": 3\n    },\n    {\n        \"id\": 2,\n        \"name\": \"note8\",\n        \"image_uri\": \"\",\n        \"featured\": 0,\n        \"category_id\": 3,\n        \"price\": 70,\n        \"provider_id\": 1\n    },\n    {\n        \"id\": 3,\n        \"name\": \"firebat\",\n        \"image_uri\": null,\n        \"featured\": 0,\n        \"category_id\": 4,\n        \"price\": 210,\n        \"provider_id\": 1\n    }\n]"
+				}
+			]
 		},
 		{
-			"name": "set feautured",
+			"name": "set feautured product",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\":1,\n    \"featured\" : true\n}",
+					"raw": "{\n    \"id\":1,\n    \"featured\" : false\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +129,197 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "set feautured product",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1,\n    \"featured\" : false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/setFeatured",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"setFeatured"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a-G4jatIPGSZfWyHXTn9ORVUjegB4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Dec 2020 10:52:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"product successfully updated\"\n}"
+				},
+				{
+					"name": "set feautured product",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1,\n    \"featured\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/setFeatured",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"setFeatured"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2f-CsqZGZiGeF72TUtEaqCWP7tH3dY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Dec 2020 10:51:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"product already set to this value\"\n}"
+				},
+				{
+					"name": "set feautured product",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/setFeatured",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"setFeatured"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "22"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"16-oDfTmQUO9iprczELLSnOr22qaEs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Dec 2020 10:52:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "\"featured\" is required"
+				}
+			]
 		}
 	],
 	"protocolProfileBehavior": {}

@@ -27,7 +27,7 @@ $ docker-compose up
 $ npm install
 $ npm start
 ```
-- visit [ecommerce App Api Docs](http://localhost:3000/api) to find Products Module Api Docs.
+- visit [ecommerce App Api Docs](http://localhost:3000/api-docs/) to find Products Api Docs.
 
 ## Support
 
