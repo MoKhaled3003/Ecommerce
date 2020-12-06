@@ -18,8 +18,8 @@ services:
     env_file:
       - .env
     environment:
-      - NODE_ENV=development
-      - HOST=mysqldb
+      - NODE_ENV=production
+      - HOSTPROD=mysqldb
 
     # working directory
     working_dir: /var/www/ecommerce

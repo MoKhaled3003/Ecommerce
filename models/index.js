@@ -8,12 +8,20 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
+const getHostUrl = ()=>{
+  if(process.env.NODE_ENV !== 'production'){
+    return process.env.HOST
+  }else{
+    return process.env.HOSTPROD
+  }
+}
+
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   sequelize = new Sequelize(process.env.DATABASE, process.env.USER_NAME, process.env.PASSWORD, {
-    host: process.env.HOST,
+    host: getHostUrl(),
     dialect: "mysql",
     dialectOptions: {
       useUTC: false, //for reading from database
