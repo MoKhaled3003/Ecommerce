@@ -15,14 +15,10 @@ module.exports.JoiValidator = class {
         })
         this.schema = Joi.object(mappedKeys)
         return (req, res, next) =>{
-            let data = {}
-            if(req.body){
-                data = req.body;
+            if (req.query) {
+                Object.assign(req.body, req.query)
             }
-            if(req.query){
-                data = req.body;
-            }
-            let { value, error } = this.schema.validate(data);
+            let { value, error } = this.schema.validate(req.body);
             if (error) return res.status(400).send(error.message);
             if (value){
                 req.body = value;
